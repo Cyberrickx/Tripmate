@@ -1,5 +1,4 @@
-const API_KEY_PEXELS =
-  "eOflpLKGfxrAok57FZbD4IRT6WgegCO19rCzFUec1cHvdLLcwvEzc40M";
+const API_KEY_PEXELS = window.config.API_KEY_PEXELS;
 
 async function fetchCityBackground(city) {
   const query = `${city} landmark`;

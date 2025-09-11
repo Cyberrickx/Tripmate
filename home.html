@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/home-style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ 
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <title>TripMate</title>
+  </head>
+
+  <body>
+    <!-- Main hero section containing the full-screen mountain background -->
+    <nav class="navbar">
+      <!-- Brand/Logo section -->
+      <div class="logo">Trip<br />Mate</div>
+
+      <!-- Main navigation menu -->
+      <ul class="nav-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#tours">Tours</a></li>
+        <li><a href="#locations">Locations</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+
+      <!-- Right side navigation elements -->
+      <div class="nav-right">
+        <div class="profile-avatar"></div>
+      </div>
+    </nav>
+    <section class="hero">
+      <!-- Navigation bar with logo, menu items, search and profile -->
+
+      <!-- Main hero content area -->
+      <div class="hero-content">
+        <!-- Left side: Main title and location -->
+        <div class="hero-left">
+          <div class="location" id="location">Loading...</div>
+          <div class="slogan">Every city, <br>at a glance.</div>
+        </div>
+
+        <!-- weather info -->
+        <div class="hero-right">
+          <div class="weather-app">
+            <div class="search-cont">
+              <input
+                type="text"
+                id="city-input"
+                placeholder="Search for a city..."
+              />
+              <button id="search-btn" title="Search">
+                <i class="fas fa-search"></i>
+              </button>
+              <button id="location-btn" title="Use Current Location">
+                <i class="fas fa-location-arrow"></i>
+              </button>
+            </div>
+
+            <div class="weather-display">
+              <div class="current-weather">
+                <div class="weather-main">
+                  <div class="date" id="date"></div>
+                  <div class="temperature" id="temp">--°</div>
+                  <div class="conditions" id="conditions">
+                    Loading weather data...
+                  </div>
+                </div>
+                <div class="weather-icon">
+                  <img src="" alt="weather icon" id="weather-icon" />
+                </div>
+              </div>
+
+              <div class="weather-details">
+                <div class="detail">
+                  <i class="fas fa-temperature-high"></i>
+                  <span id="feels-like">Feels like: --°</span>
+                </div>
+                <div class="detail">
+                  <i class="fas fa-tint"></i>
+                  <span id="humidity">Humidity: --%</span>
+                </div>
+                <div class="detail">
+                  <i class="fas fa-wind"></i>
+                  <span id="wind-speed">Wind: -- km/h</span>
+                </div>
+                <div class="detail">
+                  <i class="fas fa-eye"></i>
+                  <span id="visibility">Visibility: -- km</span>
+                </div>
+              </div>
+
+              <div class="forecast-section">
+                <h3 class="forecast-title">5-Day Forecast</h3>
+                <div class="forecast" id="forecast"></div>
+              </div>
+            </div>
+
+            <div class="loading" id="loading">
+              <div class="loader"></div>
+              <p>Loading weather data...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="#" class="social-link"
+          ><ion-icon name="logo-facebook"></ion-icon
+        ></a>
+        <!-- Facebook -->
+        <a href="#" class="social-link"
+          ><ion-icon name="logo-instagram"></ion-icon
+        ></a>
+        <!-- Instagram/Email -->
+        <a href="#" class="social-link"
+          ><ion-icon name="logo-twitter"></ion-icon
+        ></a>
+        <!-- Twitter -->
+      </div>
+
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="card-title">Personalized Journeys</div>
+          <div class="card-description">
+            Tailored travel experiences crafted to match your unique style and preferences for unforgettable adventures
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="card-title"> Expert Guidance</div>
+          <div class="card-description">
+            Local insights and professional support from travel specialists who know every hidden gem worldwide
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="card-title">Seamless Planning</div>
+          <div class="card-description">
+            Effortless booking and coordination from flights to accommodations, handled with precision and care
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="card-title"> 24/7 Support</div>
+          <div class="card-description">
+           Round-the-clock assistance wherever your adventures take you, ensuring peace of mind throughout your journey
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <script src="config.js"></script>
+    <script src="script-home.js"></script>
+  </body>
+</html>

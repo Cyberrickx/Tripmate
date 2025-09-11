@@ -8,22 +8,23 @@
 </head>
 <body>
 
+    <h1>TRIPMATE</h1>
     <div class="login-cont">
         <h2>Create an account</h2>
-        <form id="loginForm">
+        <form id="loginForm" action="home.html">
             <input type="text" id="username" placeholder="Username" required>
             <input type="email" id="email" placeholder="Email" required>
             <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Create an account</button>
+            <a href="home.html"><button type="submit">Create an account</button></a>
         </form>
         <div class="sign-with">
             <p>Or sign up with</p>
             <div class="social-icons">
-                <div class="google">
+                <div class="card">
                     <i class="fa-brands fa-google"></i>
                     <span>Google</span>
                 </div>
-                <div class="apple">
+                <div class="card">
                     <i class="fa-brands fa-apple"></i>
                     <span>Apple</span>
                 </div>
@@ -32,6 +33,7 @@
         <p>Already have an account? <a href="#">Log in</a></p>
     </div>
     
+    <script src="config.js"></script>
     <script src="https://kit.fontawesome.com/3fe6d71d92.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
