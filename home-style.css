@@ -19,20 +19,25 @@ body {
   background-attachment: fixed;
   padding: 40px 20px;
   overflow-x: hidden;
+  position: relative;
 }
 
 /* Navigation Bar */
 .navbar {
   display: flex;
-  padding: 40px 40px 0 40px;
+  padding: 20px 40px 20px 40px;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
-  flex-wrap: wrap;
+  z-index: 4;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -81,8 +86,7 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: url("IMG_5587.PNG")
-    center/cover;
+  background: url("IMG_5587.PNG") center/cover;
   border: 2px solid white;
 }
 
@@ -130,7 +134,6 @@ body {
   color: #fff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
-
 
 .location-det {
   display: flex;
@@ -464,6 +467,8 @@ body {
   text-decoration: none;
   font-size: 35px;
   transition: all 0.3s ease;
+
+ 
 }
 
 .social-link:hover {
@@ -472,54 +477,65 @@ body {
   opacity: 0.7;
 }
 
-/* Info Cards */
-.info-cards {
+
+/* Gallery */
+.gallery {
+  padding-top:15px ;
+  margin-top: 50px;
   width: min(90%, 1200px);
   display: flex;
-  gap: clamp(20px, 5vw, 100px);
+  gap: clamp(10px, 2vw, 80px);
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  margin-top: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: white;
+
+  h3{
+     font-size: 2rem
+  }
+}
+.info-cards {
+ width: min(95%, 1200px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(15px, 3vw, 25px);
+  justify-content: center;
+  padding: 5px 50px 50px 50px;
 }
 
 .info-card {
-  display: flex;
-  flex-direction: column;
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(15px);
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  padding: 25px;
+  padding: 5px;
   flex: 1;
-  min-width: 200px;
-  max-width: 250px;
-  text-align: center;
+  width: 250px;
+  height: 200px;
+   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+    background-attachment: scroll; /* Override the fixed attachment for cards */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.card-title {
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: white;
-}
-
-.card-description {
-  font-size: 0.8rem;
-  font-weight: 300;
-  letter-spacing: 0.7px;
-  opacity: 0.8;
-  line-height: 1.4;
-  color: white;
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+@media (max-width: 1070px) {
   .navbar {
-    padding: 20px 30px 0;
+    padding: 10px 30px 10px;
   }
 
   .hero-content {
@@ -536,14 +552,25 @@ body {
     justify-content: center;
     margin-top: 30px;
   }
+   .info-cards {
+    grid-template-columns: repeat(3, 1fr); /* Force 2 columns on tablets */
+    gap: 20px;  
+  }
+  
+  .info-card {
+    width: 100%;
+    height: 130px;
+  }
 }
 
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
+        flex-direction: column;
     gap: 20px;
-    padding: 15px 20px 0;
-    position: relative;
+    padding: 5px 20px 0px;
+     position: fixed;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
   }
@@ -590,19 +617,27 @@ body {
   }
 
   .info-cards {
-    margin-top: 30px;
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr); /* Force 2 columns on tablets */
+    gap: 20px;  
   }
-
+  
   .info-card {
-    min-width: 280px;
-    max-width: none;
+    width: 100%;
+    height: 130px;
   }
 }
 
 @media (max-width: 480px) {
   body {
     padding: 20px 10px;
+  }
+
+  .navbar{
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px 15px 0px;
+     background: rgba(0, 0, 0, 0.3);
+    position: relative;
   }
 
   .nav-links {
@@ -644,22 +679,12 @@ body {
   }
 
   .info-cards {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: repeat(1, 1fr); /* Force 2 columns on mobile */
     gap: 15px;
   }
-  .card-title {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    color: white;
+  
+  .info-card {
+    height: 120px;
   }
-
-  .card-description {
-    font-size: 0.8rem;
-    font-weight: 300;
-    opacity: 0.8;
-    color: white;
-  }
+  
 }

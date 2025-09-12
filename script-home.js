@@ -8,6 +8,7 @@ const cityInput = document.getElementById("city-input");
 const searchBtn = document.getElementById("search-btn");
 const locationBtn = document.getElementById("location-btn");
 const loading = document.getElementById("loading");
+const gallery = document.querySelectorAll("gallery");
 
 // Weather display elements
 const locationEl = document.getElementById("location");
@@ -49,7 +50,7 @@ async function fetchCityBackground(city) {
   const query = `${city} landmark`;
   const url = `https://api.pexels.com/v1/search?query=${encodeURIComponent(
     query
-  )}&per_page=10&orientation=landscape`;
+  )}&per_page=11&orientation=landscape`;
 
   try {
     const res = await fetch(url, {
@@ -61,10 +62,34 @@ async function fetchCityBackground(city) {
       const randomIndex = Math.floor(Math.random() * data.photos.length);
       const highRes = data.photos[randomIndex].src.large2x;
       document.body.style.backgroundImage = `url(${highRes})`;
+      updateGallery(data.photos);
     }
   } catch (err) {
     console.error("Pexels API Error:", err);
   }
+}
+
+function updateGallery(photos) {
+  const galleryCards = document.querySelectorAll(".info-card");
+
+  // We fetch 10 images, use 1 for background, so we have up to 9 for gallery
+  const availableImages = photos.slice(1); // Skip the main background image
+
+  console.log(`Available images for gallery: ${availableImages.length}`);
+  console.log(`Gallery cards: ${galleryCards.length}`);
+
+  galleryCards.forEach((card, index) => {
+    if (availableImages[index]) {
+      const photo = availableImages[index];
+      card.style.backgroundImage = `url(${photo.src.large})`;
+      card.style.backgroundAttachment = "scroll";
+      card.style.opacity = "1"; // Show card
+    } else {
+      // Hide cards that don't have images
+      card.style.backgroundImage = "none";
+      card.style.opacity = "0.3"; // Fade out empty cards
+    }
+  });
 }
 
 async function getCityFromCoords(lat, lon) {
